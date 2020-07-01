@@ -1,0 +1,149 @@
+doctype html
+html(lang='en')
+  head
+    title Airprice.com - airline tickets, cheap flights
+    meta(name='language', content='english')
+    meta(name='keywords', content='airprice, travel, cheap airfare, discount airfare')
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(http-equiv='Content-Style-Type', content='text/css')
+    meta(name='viewpoint', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='shortcut icon', type='image/x-icon', href='https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    link(rel='stylesheet', href='forcompany.css')
+    link(rel='stylesheet', href='AdminSignin.css')
+    link(rel='stylesheet', href='pswd.css')
+    link(rel='stylesheet', href='manda.css')
+    //- script(src='pswd.js')
+    //- script(src='manda.js')
+    //- script(src='formValidation.js')
+    //- script(src='checkUser.js')
+    //- script(src='login.js')
+  body#signUpPage(data-spy='scroll', data-target='.navbar', data-offset='60')
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='homepage.html')
+            span.glyphicon.glyphicon-home
+            |  Home
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li#cart
+              a.navbar-brand(href='cartshow.php')
+                span.glyphicon.glyphicon-shopping-cart
+                |  Shopping Cart
+            li#new.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.glyphicon.glyphicon-user  Sign in 
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='signup.html') Register
+                li.dropdown-submenu
+                  a(tabindex='-1', href='#') Sign in
+                  ul.dropdown-menu
+                    li
+                      a(tabindex='-1', href='Adminpage.html') Manager Sign in
+                    li
+                      a(href='customersignin.html') Customer Sign in
+            li#old.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span#wuser.glyphicon.glyphicon-user Welcom!
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='showhistory.php') History
+                li
+                  a#logout(href='#') Sign out
+    .jumbotron.text-center
+      h1 Airprice.com
+      p We specialize in your air plan!
+    .container
+      .page-header
+        h2 Sign Up
+      form.form-horizontal(name='myForm', onsubmit='return validateForm()', role='form', action='register.php', method='post')
+        .form-group
+          label.control-label.col-sm-2(for='username')
+            span(style='color:red;') *
+            |  Username:
+          .col-sm-6
+            input#username.form-control(type='username', placeholder='only alphabetical or numeric characters', name='username')
+          .col-sm-2
+            input#check_username_availability.btn.btn-success.btn-block(type='button', value='Check Availability')
+          span.error Username is required
+        .form-group
+          #username_availability_result.col-sm-offset-2.col-sm-6
+        .form-group
+          label.control-label.col-sm-2(for='pwd1')
+            span(style='color:red;') *
+            |  Password:
+          .col-sm-6
+            input#pwd1.form-control(type='password', placeholder='No special characters, at least one letter, one capital letter, one number', name='pwd1')
+          span.error Password is required
+        #pswd_info.form-group
+          h4 Password must meet the following requirements:
+          ul
+            li#letter.invalid At least one letter
+            li#capital.invalid At least one capital letter
+            li#number.invalid At least one number
+            li#length.invalid At least 6 characters
+        .form-group
+          label.control-label.col-sm-2(for='firstname')
+            span(style='color:red;') *
+            |  First Name:
+          .col-sm-6
+            input#firstname.form-control(type='firstname', placeholder='Enter Your First Name', name='firstname')
+          span.error First Name is required
+        .form-group
+          label.control-label.col-sm-2(for='middlename') Middle Name:
+          .col-sm-6
+            input#middlename.form-control(type='middlename', name='middlename', placeholder='Enter Your Middle Name')
+        .form-group
+          label.control-label.col-sm-2(for='lastname')
+            span(style='color:red;') *
+            |  Last Name:
+          .col-sm-6
+            input#lastname.form-control(type='lastname', placeholder='Enter Your Last Name', name='lastname')
+          span.error Last Name is required
+        .form-group
+          label.control-label.col-sm-2(for='email')
+            span(style='color:red;') *
+            |  Email:
+          .col-sm-6
+            input#email.form-control(type='email', placeholder='Enter Your Email', name='email')
+          span.error Email is required
+        .form-group
+          label.control-label.col-sm-2(for='gender') Gender:
+          .col-sm-6
+            label.radio-inline
+              input(type='radio', name='gender', value='Female')
+              | Female
+            label.radio-inline
+              input(type='radio', name='gender', value='Male')
+              | Male
+        .form-group
+          label.control-label.col-sm-2(for='birthday') Birthday:
+          .col-sm-6
+            input#birthday.form-control(type='date', name='birthday')
+        .form-group
+          label.control-label.col-sm-2(for='tel')
+            span(style='color:red;') *
+            |  Phone:
+          .col-sm-6
+            input#tel.form-control(type='tel', placeholder='Enter Your Phone Number', name='tel')
+          span.error Phone is required
+        .form-group
+          .col-sm-offset-2.col-sm-6
+            button#signup.btn.btn-primary.btn-block(type='submit', name='btn-signup') Sign Up
+      br
+      br
+      br
+    footer.container-fluid.text-center
+      a(href='#signUpPage', title='To Top')
+        span.glyphicon.glyphicon-chevron-up
+      p Airprice.com

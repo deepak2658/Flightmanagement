@@ -1,0 +1,228 @@
+doctype html
+html(lang='en')
+  head
+    style.
+      #homepage {
+      background-color: #ccccff;
+      width: 800px;
+      font-size: 16px;
+      height: 600px;
+      }
+      h4 {
+      font-weight: bold;
+      }
+      #signin {
+      background-color: #3366cc;
+      width: 800px;
+      color: #fff;
+      height: 450px;
+      }
+      #signin a {
+      color: #33ff00;
+      }
+      #main {
+      width: 700px;
+      padding-left: 50px;
+      padding-right: 50px;
+      }
+      .dropdown-submenu {
+      position: relative;
+      }
+      .dropdown-submenu>.dropdown-menu {
+      top: 0;
+      right: 100%;
+      margin-top: -6px;
+      margin-left: -1px;
+      -webkit-border-radius: 0 6px 6px 6px;
+      -moz-border-radius: 0 6px 6px;
+      border-radius: 0 6px 6px 6px;
+      }
+      th {
+      width: 50px;
+      height: 10px;
+      color: gray;
+      }
+      td {
+      color: gray;
+      }
+      .dropdown-submenu:hover>.dropdown-menu {
+      display: block;
+      }
+      .dropdown-submenu>a:after {
+      display: block;
+      content: " ";
+      float: right;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      border-left-color: #ccc;
+      margin-top: 5px;
+      margin-right: -10px;
+      }
+      .dropdown-submenu:hover>a:after {
+      border-left-color: #fff;
+      }
+      .dropdown-submenu.pull-left {
+      float: none;
+      }
+      .dropdown-submenu.pull-left>.dropdown-menu {
+      left: -100%;
+      margin-left: 10px;
+      -webkit-border-radius: 6px 0 6px 6px;
+      -moz-border-radius: 6px 0 6px 6px;
+      border-radius: 6px 0 6px 6px;
+      }
+    title Airprice Company
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='shortcut icon', type='image/x-icon', href='https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    link(rel='stylesheet', href='forcompany.css')
+    link(rel='stylesheet', href='AdminSignin.css')
+    script(src='login.js')
+    script(src='jump.js')
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='homepage.html')
+            span.glyphicon.glyphicon-home
+            |  Home
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li#cart
+              a.navbar-brand(href='cartshow.php')
+                span.glyphicon.glyphicon-shopping-cart
+                |  Shopping Cart
+            li#new.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.glyphicon.glyphicon-user  Sign in 
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='signup.html') Register
+                li.dropdown-submenu
+                  a(tabindex='-1', href='#') Sign in
+                  ul.dropdown-menu
+                    li
+                      a(tabindex='-1', href='Adminpage.html') Manager Sign in
+                    li
+                      a(href='customersignin.html') Customer Sign in
+            li#old.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span#wuser.glyphicon.glyphicon-user Welcome!
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='showhistory.php') History
+                li
+                  a#logout(href='#') Sign out
+    .jumbotron.text-center
+      h1 Airprice.com
+      p We specialize in your air plan!
+    #homepage.container
+      h1
+        b Search Flights
+      br
+      p
+        b Choose your flight option
+      .btn-group.btn-group-justified
+        .btn-group
+          button#button1.btn.btn-primary(type='button', href='#oneway') One-way
+        .btn-group
+          button#button2.btn.btn-primary(type='button', href='#roundtrip') Round-trip
+        .btn-group
+          button#button3.btn.btn-primary(type='button', href='#all') Search all flights
+      hr
+      #oneway
+        form(role='form', action='resultOneWay.pug', method='post')
+          .row
+            .col-sm-6
+              label(for='from') From:
+              input#from.form-control(type='text', name='from', placeholder='City or Code', required='')
+            .col-sm-6
+              label(for='to') To:
+              input#to.form-control(type='text', name='to', placeholder='City or Code', required='')
+          hr
+          .row
+            .col-sm-6
+              label(for='depart') Depart:
+              input#depart.form-control(type='date', name='depart', required='')
+          .row
+            hr
+            .col-sm-6
+              label(for='class') Class:
+              select.form-control(name='class')
+                option(value='Economy') Economy
+                option(value='Business') Business
+          br
+          .row
+            .col-sm-6
+              label.radio-inline
+                input(type='radio', name='stop', value='nonstop', checked='')
+                | Non-Stop
+              label.radio-inline
+                input(type='radio', name='stop', value='1stop')
+                | 1 Stop
+          br
+          .btn-group.btn-group-justified
+            .btn-group
+              button.btn.btn-success(type='submit') Submit
+            .btn-group
+              button.btn.btn-info(type='reset', value='Reset') Reset
+      #roundtrip
+        form(role='form', action='SearchResultRoundtrip.php', method='post')
+          .row
+            .col-sm-6
+              label(for='from') From:
+              input#from.form-control(type='text', name='from', placeholder='Code ', required='')
+            .col-sm-6
+              label(for='to') To:
+              input#to.form-control(type='text', name='to', placeholder='Code', required='')
+          hr
+          .row
+            .col-sm-6
+              label(for='depart') Depart:
+              input#depart.form-control(type='date', name='depart', required='')
+            .col-sm-6
+              label(for='return') Return:
+              input#return.form-control(type='date', name='return', required='')
+          hr
+          .row
+            .col-sm-6
+              label(for='class') Class:
+              select.form-control(name='class')
+                option(value='Economy') Economy
+                option(value='Business') Business
+          br
+          .form-group
+            label.radio-inline
+              input(type='radio', name='stop', value='nonstop', checked='')
+              | Non-Stop
+          .btn-group.btn-group-justified
+            .btn-group
+              button.btn.btn-success(type='submit') Submit
+            .btn-group
+              button.btn.btn-info(type='reset', value='Reset') Reset
+      #all
+        form(role='form', action='SearchResultAll.php', method='post')
+          .row
+            .col-sm-6
+              label(for='selectdate') Select a date:
+              input#selectdate.form-control(type='date', name='selectdate', required='')
+          br
+          .row
+            .col-sm-6
+              button.btn.btn-primary(type='submit') Show ALL
+    footer.container-fluid.text-center
+      a(href='#signUpPage', title='To Top')
+        span.glyphicon.glyphicon-chevron-up
+      p Airprice.com

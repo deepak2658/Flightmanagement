@@ -1,0 +1,160 @@
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='shortcut icon' type='image/x-icon' href='https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG')
+  link(rel='stylesheet' href='forcompany.css')
+  link(rel='stylesheet' href='AdminSignin.css')
+  script(src='jquery-1.9.1.min.js')
+  script(src='Admin.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js')
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button' data-toggle='collapse' data-target='#myNavbar')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='homepage.html')
+        span.glyphicon.glyphicon-home
+        |  Home
+    #myNavbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.dropdown
+          a.dropdown-toggle(data-toggle='dropdown' href='homepage.html')
+            span.glyphicon.glyphicon-user  Sign out&Acirc;&nbsp;
+.jumbotron.text-center
+  h1 Airprice.com
+  p We specialize in your air plan!
+ul.nav.nav-tabs
+  li.nav-item
+    a.nav-link.active(data-toggle='tab' href='#home') ADD FLIGHT
+  li.nav-item
+    a.nav-link(data-toggle='tab' href='#menu1') UPDATE FLIGHT
+  li.nav-item
+    a.nav-link(data-toggle='tab' href='#menu2') DELETE FLIGHT
+// Tab panes
+.tab-content
+  #home.container.tab-pane.active
+    br
+    #add
+      form#addf.form-horizontal(role='form' action='registerFlight' method='post')
+        .form-group
+          label.control-label.col-sm-2(for='flightno2') Flight No.
+          .col-sm-6
+            input#flightno2.form-control(type='flightno' placeholder='' name='flightno')
+        .form-group
+          label.control-label.col-sm-2(for='airplaneid2') Airplane ID
+          .col-sm-6
+            input#airplaneid2.form-control(type='airplaneid' placeholder='' name='airplaneid')
+          label#ad1.control-label.col-sm-1(for='airpiddetail')
+            font(color='gray') details
+          #detail.col-sm-3
+        .form-group
+          label.control-label.col-sm-2(for='departure') Departure Airport
+          .col-sm-6
+            input#departure2.form-control(type='departure' placeholder='' name='departure')
+          label#ad2.control-label.col-sm-1(for='dairportdetail')
+            font(color='gray') details
+          #adetail2.col-sm-3
+        .form-group
+          label.control-label.col-sm-2(for='dtime') Departure Time
+          .col-sm-6
+            input#dtime2.form-control(type='dtime' placeholder='' name='dtime')
+        .form-group
+          label.control-label.col-sm-2(for='arrival') Arrival Airport
+          .col-sm-6
+            input#arrival2.form-control(type='arrival' placeholder='' name='arrival')
+          label#ad3.control-label.col-sm-1(for='dairportdetail')
+            font(color='gray') details
+          #adetail3.col-sm-3
+        .form-group
+          label.control-label.col-sm-2(for='atime') Arrival Time
+          .col-sm-6
+            input#atime2.form-control(type='atime' placeholder='' name='atime')
+        .form-group
+          label.control-label.col-sm-2(for='ecapacity') Economy Capacity
+          .col-sm-6
+            input#ecapacity2.form-control(type='ecapacity' placeholder='' name='ecapacity')
+        .form-group
+          label.control-label.col-sm-2(for='eprice') Economy Price
+          .col-sm-6
+            input#eprice2.form-control(type='eprice' placeholder='' name='eprice')
+        .form-group
+          label.control-label.col-sm-2(for='bcapacity') Business Capacity
+          .col-sm-6
+            input#bcapacity2.form-control(type='bcapacity' placeholder='' name='bcapacity')
+        .form-group
+          label.control-label.col-sm-2(for='bprice') Business Price
+          .col-sm-6
+            input#bprice2.form-control(type='bprice' placeholder='' name='bprice')
+        br
+        .form-group
+          .col-sm-offset-2.col-sm-6
+            input#ad.btn.btn-success.btn-block(type='submit' name='btn-submit' value='submit')
+  #menu1.container.tab-pane.fade
+    br
+    h3 Update Flight
+    form#result.form-horizontal(role='form')
+      .form-group
+        label.control-label.col-sm-2(for='airplaneid') Airplane ID
+        .col-sm-6
+          input#airplaneid1.form-control(type='airplaneid' placeholder='' name='airplaneid')
+        label#ud1.control-label.col-sm-1(for='dairportdetail')
+          font(color='gray') details
+        #detail1.col-sm-3
+      .form-group
+        label.control-label.col-sm-2(for='departure') Departure Airport
+        .col-sm-6
+          input#departure1.form-control(type='departure' placeholder='' name='departure')
+        label#ud2.control-label.col-sm-1(for='dairportdetail')
+          font(color='gray') details
+        #udetail2.col-sm-3
+      .form-group
+        label.control-label.col-sm-2(for='dtime') Departure Time
+        .col-sm-6
+          input#dtime1.form-control(type='dtime' placeholder='' name='dtime')
+      .form-group
+        label.control-label.col-sm-2(for='arrival') Arrival Airport
+        .col-sm-6
+          input#arrival1.form-control(type='arrival' placeholder='' name='arrival')
+        label#ud3.control-label.col-sm-1(for='dairportdetail')
+          font(color='gray') details
+        #udetail3.col-sm-3
+      .form-group
+        label.control-label.col-sm-2(for='atime') Arrival Time
+        .col-sm-6
+          input#atime1.form-control(type='atime' placeholder='' name='atime')
+      .form-group
+        label.control-label.col-sm-2(for='ecapacity') Economy Capacity
+        .col-sm-6
+          input#ecapacity1.form-control(type='ecapacity' placeholder='' name='ecapacity')
+      .form-group
+        label.control-label.col-sm-2(for='eprice') Economy Price
+        .col-sm-6
+          input#eprice1.form-control(type='eprice' placeholder='' name='eprice')
+      .form-group
+        label.control-label.col-sm-2(for='bcapacity') Business Capacity
+        .col-sm-6
+          input#bcapacity1.form-control(type='bcapacity' placeholder='' name='bcapacity')
+      .form-group
+        label.control-label.col-sm-2(for='bprice') Business Price
+        .col-sm-6
+          input#bprice1.form-control(type='bprice' placeholder='' name='bprice')
+      br
+      .form-group
+        .col-sm-offset-2.col-sm-6
+          input#up.btn.btn-primary.btn-block.btn-primary(type='button' value='Update')
+  #menu2.container.tab-pane.fade
+    br
+    h3 Delete Flight
+    form#addf.form-horizontal(role='form' action='registerFlight' method='POST')
+      .form-group
+        label.control-label.col-sm-2(for='airplaneid') Airplane ID
+        .col-sm-6
+          input#airplaneid1.form-control(type='airplaneid' placeholder='' name='airplaneid')
+        label#ud1.control-label.col-sm-1(for='dairportdetail')
+        br
+        input.btn.btn-large.btn-danger(type='submit' value='Delete')

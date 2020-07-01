@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+
+<head>
+    <title>Search Flights</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        #homepage {
+            background-color: #ccccff;
+            width: 800px;
+            font-size: 16px;
+            height: 600px;
+        }
+
+        h4 {
+            font-weight: bold;
+        }
+
+        #signin {
+            background-color: #3366cc;
+            width: 800px;
+            color: #fff;
+            height: 450px;
+        }
+
+        #signin a {
+            color: #33ff00;
+        }
+
+        #main {
+
+            width: 700px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            right: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            -moz-border-radius: 0 6px 6px;
+            border-radius: 0 6px 6px 6px;
+        }
+
+        .btn-group {
+            padding: 0px 2px;
+        }
+
+        #oneway {
+            display: none;
+        }
+
+        #roundtrip {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: row;
+            width: 99vw;
+            border: 2px solid red;
+            border-radius: 5px;
+            position: absolute;
+            left: -250px;
+            background-color: #d0a997;
+            height: 13vh;
+            margin: 15px auto;
+            padding: 0px 20px;
+        }
+
+        #all {
+            display: none;
+        }
+
+        th {
+            width: 50px;
+            height: 10px;
+            color: gray;
+        }
+
+        td {
+            color: gray;
+        }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu>a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: #ccc;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        .dropdown-submenu:hover>a:after {
+            border-left-color: #fff;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
+        .dropdown-submenu.pull-left>.dropdown-menu {
+            left: -100%;
+            margin-left: 10px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            -moz-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" id="new">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                                class="glyphicon glyphicon-user"> Sign in&nbsp;</span><span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                            <li><a href="signup.html">Register</a></li>
+
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Sign in</a>
+                                <ul class="dropdown-menu">
+                                    <li><a tabindex="-1" href="Adminpage.html">Manager Sign in</a></li>
+                                    <li><a href="customersignin.html">Customer Sign in</a></li>
+
+
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                </li>
+                <li class="dropdown" id="old">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"
+                            id="wuser">Welcome!</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                        <li><a href="#" id="logout">Sign out</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron text-center">
+        <h1>Airprice.com</h1>
+        <p>We specialize in your air plan!</p>
+    </div>
+
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Search Result</h1>
+                <div class="container-form">
+                    <form class="form-horizontal" role="form" id="result">
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="name">Flight Name</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="">
+
+                            </div> -->
+                        </div>
+
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="flightno">Flight No.</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="flightno" class="form-control" id="flightno1" placeholder=""
+                                    name="flightno">
+
+                            </div> -->
+
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="airplaneid">Airplane ID</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="airplaneid" class="form-control" id="airplaneid1" placeholder=""
+                                    name="airplaneid">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="departure">Departure Airport</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="departure" class="form-control" id="departure1" placeholder=""
+                                    name="departure">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="dtime">Departure Time</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="dtime" class="form-control" id="dtime1" placeholder="" name="dtime">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="arrival">Arrival Airport</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="arrival" class="form-control" id="arrival1" placeholder="" name="arrival">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="atime">Arrival Time</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="atime" class="form-control" id="atime1" placeholder="" name="atime">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="ecapacity">Economy Vacancy</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="ecapacity" class="form-control" id="ecapacity1" placeholder=""
+                                    name="ecapacity">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="eprice">Economy Price</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="eprice" class="form-control" id="eprice1" placeholder="" name="eprice">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <h3 class="control-label col-sm-2" for="bcapacity">Business Vacancy</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="bcapacity" class="form-control" id="bcapacity1" placeholder=""
+                                    name="bcapacity">
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="bprice">Business Price</label> -->
+                            <h3 class="control-label col-sm-2" for="bprice">Business Price</h3>
+                            <!-- <div class="col-sm-6">
+                                <input type="bprice" class="form-control" id="bprice1" placeholder="" name="bprice">
+                            </div> -->
+                        </div>
+
+                        <br />
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG">
+        <link rel="stylesheet" href="forcompany.css">
+        <link rel="stylesheet" href="AdminSignin.css">
+        <script src="jquery-1.9.1.min.js"></script>
+        <script src="Admin.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="homepage.html"><span class="glyphicon glyphicon-home"></span> Home</a></div>
+                <div
+                    class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="homepage.html"><span class="glyphicon glyphicon-user"> Sign out </span></a></li>
+                    </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="jumbotron text-center">
+            <h1>Airprice.com</h1>
+            <p>We specialize in your air plan!</p>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">ADD FLIGHT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1">UPDATE FLIGHT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2">DELETE FLIGHT</a>
+            </li>
+          </ul>
+        
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <div id="add">
+                    <form class="form-horizontal" id="addf" role="form" action="registerFlight" method="post">
+                        <div class="form-group"><label class="control-label col-sm-2" for="flightno2">Flight No.</label>
+                            <div class="col-sm-6"><input class="form-control" id="flightno2" type="flightno" placeholder="" name="flightno"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="airplaneid2">Airplane ID</label>
+                            <div class="col-sm-6"><input class="form-control" id="airplaneid2" type="airplaneid" placeholder="" name="airplaneid"></div><label class="control-label col-sm-1" id="ad1" for="airpiddetail"><font color="gray">details</font></label>
+                            <div class="col-sm-3"
+                                id="detail"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="departure">Departure Airport</label>
+                            <div class="col-sm-6"><input class="form-control" id="departure2" type="departure" placeholder="" name="departure"></div><label class="control-label col-sm-1" id="ad2" for="dairportdetail"><font color="gray">details</font></label>
+                            <div class="col-sm-3" id="adetail2"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="dtime">Departure Time</label>
+                            <div class="col-sm-6"><input class="form-control" id="dtime2" type="dtime" placeholder="" name="dtime"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="arrival">Arrival Airport</label>
+                            <div class="col-sm-6"><input class="form-control" id="arrival2" type="arrival" placeholder="" name="arrival"></div><label class="control-label col-sm-1" id="ad3" for="dairportdetail"><font color="gray">details</font></label>
+                            <div class="col-sm-3" id="adetail3"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="atime">Arrival Time</label>
+                            <div class="col-sm-6"><input class="form-control" id="atime2" type="atime" placeholder="" name="atime"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="ecapacity">Economy Capacity</label>
+                            <div class="col-sm-6"><input class="form-control" id="ecapacity2" type="ecapacity" placeholder="" name="ecapacity"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="eprice">Economy Price</label>
+                            <div class="col-sm-6"><input class="form-control" id="eprice2" type="eprice" placeholder="" name="eprice"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="bcapacity">Business Capacity</label>
+                            <div class="col-sm-6"><input class="form-control" id="bcapacity2" type="bcapacity" placeholder="" name="bcapacity"></div>
+                        </div>
+                        <div class="form-group"><label class="control-label col-sm-2" for="bprice">Business Price</label>
+                            <div class="col-sm-6"><input class="form-control" id="bprice2" type="bprice" placeholder="" name="bprice"></div>
+                        </div><br>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-6"><input class="btn btn-success btn-block" id="ad" type="submit" name="btn-submit" value="submit"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="menu1" class="container tab-pane fade"><br>
+              <h3>Update Flight</h3>
+              <form class="form-horizontal" id="result" role="form">
+                    <div class="form-group"><label class="control-label col-sm-2" for="airplaneid">Airplane ID</label>
+                    <div class="col-sm-6"><input class="form-control" id="airplaneid1" type="airplaneid" placeholder="" name="airplaneid"></div><label class="control-label col-sm-1" id="ud1" for="dairportdetail"><font color="gray">details</font></label>
+                    <div class="col-sm-3"
+                        id="detail1"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="departure">Departure Airport</label>
+                    <div class="col-sm-6"><input class="form-control" id="departure1" type="departure" placeholder="" name="departure"></div><label class="control-label col-sm-1" id="ud2" for="dairportdetail"><font color="gray">details</font></label>
+                    <div class="col-sm-3" id="udetail2"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="dtime">Departure Time</label>
+                    <div class="col-sm-6"><input class="form-control" id="dtime1" type="dtime" placeholder="" name="dtime"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="arrival">Arrival Airport</label>
+                    <div class="col-sm-6"><input class="form-control" id="arrival1" type="arrival" placeholder="" name="arrival"></div><label class="control-label col-sm-1" id="ud3" for="dairportdetail"><font color="gray">details</font></label>
+                    <div class="col-sm-3" id="udetail3"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="atime">Arrival Time</label>
+                    <div class="col-sm-6"><input class="form-control" id="atime1" type="atime" placeholder="" name="atime"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="ecapacity">Economy Capacity</label>
+                    <div class="col-sm-6"><input class="form-control" id="ecapacity1" type="ecapacity" placeholder="" name="ecapacity"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="eprice">Economy Price</label>
+                    <div class="col-sm-6"><input class="form-control" id="eprice1" type="eprice" placeholder="" name="eprice"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="bcapacity">Business Capacity</label>
+                    <div class="col-sm-6"><input class="form-control" id="bcapacity1" type="bcapacity" placeholder="" name="bcapacity"></div>
+                </div>
+                <div class="form-group"><label class="control-label col-sm-2" for="bprice">Business Price</label>
+                    <div class="col-sm-6"><input class="form-control" id="bprice1" type="bprice" placeholder="" name="bprice"></div>
+                </div><br>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6"><input class="btn btn-primary btn-block btn-primary" id="up" type="button" value="Update"></div>
+                </div>
+            </form>
+        </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+              <h3>Delete Flight</h3>
+              <form class="form-horizontal" id="addf" role="form" action="registerFlight" method="POST">
+              <div class="form-group"><label class="control-label col-sm-2" for="airplaneid">Airplane ID</label>
+                <div class="col-sm-6"><input class="form-control" id="airplaneid1" type="airplaneid" placeholder="" name="airplaneid"></div><label class="control-label col-sm-1" id="ud1" for="dairportdetail"></label>
+                <br>
+                <input type="submit" class="btn btn-large btn-danger" value="Delete">    
+            </form>
+            </div>
+          </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+  head
+    title Airprice.com - airline tickets, cheap flights
+    meta(name='language', content='english')
+    meta(name='keywords', content='airprice, travel, cheap airfare, discount airfare')
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    meta(http-equiv='Content-Style-Type', content='text/css')
+    meta(name='viewpoint', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+    link(rel='shortcut icon', type='image/x-icon', href='https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+    link(rel='stylesheet', href='forcompany.css')
+    link(rel='stylesheet', href='customersignin.css')
+    link(rel='stylesheet', href='AdminSignin.css')
+    script(src='login.js')
+  body#signUpPage(data-spy='scroll', data-target='.navbar', data-offset='60')
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='homepage.html')
+            span.glyphicon.glyphicon-home
+            |  Home
+        #myNavbar.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li#cart
+              a.navbar-brand(href='cartshow.php')
+                span.glyphicon.glyphicon-shopping-cart
+                |  Shopping Cart
+            li#new.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span.glyphicon.glyphicon-user  Sign in 
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='signup.html') Register
+                li.dropdown-submenu
+                  a(tabindex='-1', href='#') Sign in
+                  ul.dropdown-menu
+                    li
+                      a(tabindex='-1', href='Adminpage.html') Manager Sign in
+                    li
+                      a(href='customersignin.html') Customer Sign in
+            li#old.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                span#wuser.glyphicon.glyphicon-user Welcom!
+                span.caret
+              ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='showhistory.php') History
+                li
+                  a#logout(href='#') Sign out
+    .jumbotron.text-center
+      h1 Airprice.com
+      p We specialize in your air plan!
+    #signin.container
+      h2 Welcome , please sign-in.
+      p
+        | We want your visit to be fast and easy.  Please enter your username and password to get started. If you need to set up your profile, please 
+        a(href='signup.html') register now
+        | .
+      form(action='login.php', method='post')
+        #main.container
+          h3 Your username:
+          input#username.form-control(type='text', placeholder='Enter Your Username', name='username', required='')
+          h3 Your password:
+          input#pwd.form-control(type='password', placeholder='Enter Your Password', name='pwd', required='')
+        br
+        .col-sm-offset-2.col-sm-6
+          .checkbox
+            label
+              input(type='checkbox')
+              |  Remember my username when I return
+        .col-sm-offset-2.col-sm-8
+          button.btn.btn-success.btn-block(type='submit', name='btn-login') Sign In
+    br
+    br
+    footer.container-fluid.text-center
+      a(href='#signUpPage', title='To Top')
+        span.glyphicon.glyphicon-chevron-up
+      p Airprice.com

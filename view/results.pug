@@ -1,0 +1,227 @@
+doctype html
+head
+  title Search Flights
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='shortcut icon', type='image/x-icon', href='https://lh3.googleusercontent.com/-HtZivmahJYI/VUZKoVuFx3I/AAAAAAAAAcM/thmMtUUPjbA/Blue_square_A-3.PNG')
+  link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+  style.
+    #homepage {
+    background-color: #ccccff;
+    width: 800px;
+    font-size: 16px;
+    height: 600px;
+    }
+    h4 {
+    font-weight: bold;
+    }
+    #signin {
+    background-color: #3366cc;
+    width: 800px;
+    color: #fff;
+    height: 450px;
+    }
+    #signin a {
+    color: #33ff00;
+    }
+    #main {
+    width: 700px;
+    padding-left: 50px;
+    padding-right: 50px;
+    }
+    .dropdown-submenu {
+    position: relative;
+    }
+    .dropdown-submenu>.dropdown-menu {
+    top: 0;
+    right: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+    }
+    .btn-group {
+    padding: 0px 2px;
+    }
+    #oneway {
+    display: none;
+    }
+    #roundtrip {
+    display: none;
+    }
+    form {
+    display: flex;
+    flex-direction: row;
+    width: 99vw;
+    border: 2px solid red;
+    border-radius: 5px;
+    position: absolute;
+    left: -250px;
+    background-color: #d0a997;
+    height: 13vh;
+    margin: 15px auto;
+    padding: 0px 20px;
+    }
+    #all {
+    display: none;
+    }
+    th {
+    width: 50px;
+    height: 10px;
+    color: gray;
+    }
+    td {
+    color: gray;
+    }
+    .dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+    }
+    .dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+    }
+    .dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+    }
+    .dropdown-submenu.pull-left {
+    float: none;
+    }
+    .dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+    }
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='homepage.html')
+        span.glyphicon.glyphicon-home
+        |  Home
+    #myNavbar.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li#new.dropdown
+          a.dropdown-toggle(data-toggle='dropdown', href='#')
+            span.glyphicon.glyphicon-user  Sign in&nbsp;
+            span.caret
+          ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+            li
+              a(href='signup.html') Register
+            li.dropdown-submenu
+              a(tabindex='-1', href='#') Sign in
+              ul.dropdown-menu
+                li
+                  a(tabindex='-1', href='Adminpage.html') Manager Sign in
+                li
+                  a(href='customersignin.html') Customer Sign in
+      li#old.dropdown
+        a.dropdown-toggle(data-toggle='dropdown', href='#')
+          span#wuser.glyphicon.glyphicon-user Welcome!
+          span.caret
+        ul.dropdown-menu.multi-level(role='menu', aria-labelledby='dropdownMenu')
+          li
+            a#logout(href='#') Sign out
+.jumbotron.text-center
+  h1 Airprice.com
+  p We specialize in your air plan!
+.container-fluid.text-center
+  .row.content
+    .col-sm-2.sidenav
+    .col-sm-8.text-left
+      h1 Search Result
+      mixin Display(flightno,airplaneid,dtime,atime,eprice,bprice)
+        .container-form
+          form#result.form-horizontal(role='form')
+            .form-group
+              h3.control-label.col-sm-2(for='name') Flight Name
+              //
+                <div class="col-sm-6">
+                <input type="text" class="form-control" name="name" id="name" placeholder="">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='flightno') #{flightno}
+              //
+                <div class="col-sm-6">
+                <input type="flightno" class="form-control" id="flightno1" placeholder=""
+                name="flightno">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='airplaneid') #{airplaneid}
+              //
+                <div class="col-sm-6">
+                <input type="airplaneid" class="form-control" id="airplaneid1" placeholder=""
+                name="airplaneid">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='departure') Departure Airport
+              //
+                <div class="col-sm-6">
+                <input type="departure" class="form-control" id="departure1" placeholder=""
+                name="departure">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='dtime') #{dtime}
+              //
+                <div class="col-sm-6">
+                <input type="dtime" class="form-control" id="dtime1" placeholder="" name="dtime">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='arrival') Arrival Airport
+              //
+                <div class="col-sm-6">
+                <input type="arrival" class="form-control" id="arrival1" placeholder="" name="arrival">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='atime') #{atime}
+              //
+                <div class="col-sm-6">
+                <input type="atime" class="form-control" id="atime1" placeholder="" name="atime">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='ecapacity') Economy Vacancy
+              //
+                <div class="col-sm-6">
+                <input type="ecapacity" class="form-control" id="ecapacity1" placeholder=""
+                name="ecapacity">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='eprice') #{eprice}
+              //
+                <div class="col-sm-6">
+                <input type="eprice" class="form-control" id="eprice1" placeholder="" name="eprice">
+                </div>
+            .form-group
+              h3.control-label.col-sm-2(for='bcapacity') Business Vacancy
+              //
+                <div class="col-sm-6">
+                <input type="bcapacity" class="form-control" id="bcapacity1" placeholder=""
+                name="bcapacity">
+                </div>
+            .form-group
+              // <label class="control-label col-sm-2" for="bprice">Business Price</label>
+              h3.control-label.col-sm-2(for='bprice') #{bprice}
+              //
+                <div class="col-sm-6">
+                <input type="bprice" class="form-control" id="bprice1" placeholder="" name="bprice">
+                </div>
+          br
+      each driver in flights
+                +Display(driver.flightno,driver.airplaneno,driver.dtime,driver.atime,driver.eprice,driver.bprice)
+      
